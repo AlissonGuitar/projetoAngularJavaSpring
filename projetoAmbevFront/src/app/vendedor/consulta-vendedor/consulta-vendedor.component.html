@@ -1,0 +1,32 @@
+<h3> {{titulo}}</h3>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Código do Vendedor</th>
+            <th>CPF</th>
+            <th>Razão Social</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Alterar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let vendedor of vendedores; let i = index">
+            <td>{{vendedor.codVendedor}}</td>
+            <td>{{vendedor.cpf}}</td>
+            <td>{{vendedor.razSocial}}</td>
+            <td>{{vendedor.latitude}}</td>
+            <td>{{vendedor.longitude}}</td>
+            <td><a (click)="editar(vendedor.codVendedor);">Alterar</a></td>
+            <td><a (click)="excluir(vendedor.codVendedor, i);">Excluir</a></td>
+        </tr>
+
+        <tr>
+            <td colspan="6" style="text-align: right;">Total de Registros: {{ vendedores.length }}</td>
+        </tr>
+    </tbody>
+</table>

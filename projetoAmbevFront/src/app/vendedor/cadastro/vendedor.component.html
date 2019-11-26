@@ -1,0 +1,23 @@
+<form (ngSubmit)="salvarVendedor()">
+
+
+    <h3>{{titulo}}</h3>
+
+    <label>CPF:
+        <input type="input" name="cpf" onkeypress="cpf" size="14" [(ngModel)]="vendedor.cpf" />
+
+    </label><br/><br/>
+
+    <label>Razão Social:
+        <input type="input" name="razSocial" size="20" [(ngModel)]="vendedor.razSocial"/>
+    </label><br/><br/>
+
+    <label>Latitude:
+        <input type="input" name="latitude" size="30" [(ngModel)]="vendedor.latitude"/>
+    </label><br/><br/>
+
+    <label>Longitude:
+        <input type="input" name="longitude" size="30" [(ngModel)]="vendedor.longitude"/>
+    </label><br/><br/>
+    <button type="submit">Cadastrar</button>
+</form>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">ProjetoAmbev</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item cadastro">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarCadastro" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cadastro
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['cadastro-cliente']">Cliente</a>
+                    <a class="dropdown-item" [routerLink]="['cadastro-vendedor']">Vendedor</a>
+                </div>
+            </li>
+            <li class="nav-item relatorios">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarRelatorios" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Relatórios
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['consulta-cliente']">Clientes</a>
+                    <a class="dropdown-item" [routerLink]="['consulta-vendedor']">Vendedores</a>
+                </div>
+            </li>
+            <li class="nav-item gerencial">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarGerencial" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Gerencial
+            </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Distribuição de clientes</a>
+
+
+                </div>
+            </li>
+
+
+
+        </ul>
+
+    </div>
+</nav>

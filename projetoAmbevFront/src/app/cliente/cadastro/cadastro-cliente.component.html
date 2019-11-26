@@ -1,0 +1,24 @@
+<form (ngSubmit)="salvar()">
+
+
+    <h3>{{titulo}}</h3>
+
+
+
+    <label>CNPJ:
+        <input type="input" name="CNPJ"  size="14" [(ngModel)]="cliente.cnpj" />
+    </label><br/><br/>
+
+    <label>Razão Social:
+        <input type="input" name="razSocial" size="20" [(ngModel)]="cliente.raz_social"/>
+    </label><br/><br/>
+
+    <label>Latitude:
+        <input type="input" name="Latitude" size="30" [(ngModel)]="cliente.latitude"/>
+    </label><br/><br/>
+
+    <label>Longitude:
+        <input type="input" name="Longitude" size="30" [(ngModel)]="cliente.longitude"/>
+    </label><br/><br/>
+    <button type="submit">Cadastrar</button>
+</form>
