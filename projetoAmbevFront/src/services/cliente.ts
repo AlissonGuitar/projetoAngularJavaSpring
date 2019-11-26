@@ -1,10 +1,10 @@
 export class Cliente{
     
-    cod_cliente:number;
+    codCliente:number;
     CNPJ:string;
-    raz_social:string;
+    razSocial:string;
     latitude:string;
     longitude:string;
-    cod_vendedor:number;
+    codVendedor:number;
    
 }

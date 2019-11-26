@@ -18,11 +18,11 @@ public class ClienteModel  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cod_cliente")
-    private Long cod_cliente;
+    private Long codCliente;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cod_vendedor")
-    private VendedorModel vendedormodel;
+    private VendedorModel vendedorModel;
 
 
     @Verify(ParametroTipo.CNPJ)
@@ -30,16 +30,16 @@ public class ClienteModel  {
 
 
 
-    private String raz_social;
+    private String razSocial;
     private  String latitude;
     private String longitude;
 
     public Long getCodCliente() {
-        return cod_cliente;
+        return codCliente;
     }
 
     public void setCodCliente(Long codCliente) {
-        this.cod_cliente = codCliente;
+        this.codCliente = codCliente;
     }
 
     public String getCNPJ() {
@@ -47,23 +47,23 @@ public class ClienteModel  {
     }
 
     public VendedorModel getVendedormodel() {
-        return vendedormodel;
+        return vendedorModel;
     }
 
     public void setVendedormodel(VendedorModel vendedormodel) {
-        this.vendedormodel = vendedormodel;
+        this.vendedorModel = vendedormodel;
     }
 
     public void setCNPJ(String CNPJ) {
         this.CNPJ = CNPJ;
     }
 
-    public String getRaz_social() {
-        return raz_social;
+    public String getRazSocial() {
+        return razSocial;
     }
 
-    public void setRaz_social(String raz_social) {
-        this.raz_social = raz_social;
+    public void setRazSocial(String raz_social) {
+        this.razSocial = razSocial;
     }
 
     public String getLatitude() {

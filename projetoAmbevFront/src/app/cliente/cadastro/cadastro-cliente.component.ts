@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ClienteService} from '../../../services/cliente.service';
 import {Cliente} from '../../../services/cliente';
 import {Response} from '../../../services/response';
+import { ConsultaComponent } from '../consultacliente/consulta.component';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class CadastroComponent implements OnInit {
     codigo:number;
     private cliente:Cliente = new Cliente();
     route: any;
+    private consulta:ConsultaComponent;
     
 
     constructor(private router:Router,private activatedRoute:ActivatedRoute, private clienteService: ClienteService)
@@ -35,7 +37,7 @@ export class CadastroComponent implements OnInit {
             }
             else {
                 this.titulo = "Alterar cliente"
-                this.clienteService.getCliente(Number(parametro["codigo"])).subscribe(res => this.cliente = res);
+            this.clienteService.getCliente(Number(parametro["codigo"])).subscribe(res => this.cliente = res);
               
     
             }
@@ -48,8 +50,10 @@ export class CadastroComponent implements OnInit {
     //função de cadastrar ou alterar cliente
     salvar():void
     {
+
+      
       //verifica codigo e insere
-        if(this.cliente.cod_cliente == undefined)
+        if(this.cliente.codCliente == undefined)
         {
            // chamando servico para cadastrar
      
@@ -57,7 +61,7 @@ export class CadastroComponent implements OnInit {
                  {
                      //response do retorno do servico
                     let res:Response = <Response>response;
-
+                   
             //          //se retorna 1 mostra sucesso e limpa form
 
                      if(res.codigo==1)
@@ -81,14 +85,15 @@ export class CadastroComponent implements OnInit {
         else{
             //alterando informaçoes do cliente resgistrado
 
+
+           
              
              this.clienteService.alteraCliente(this.cliente).subscribe(response =>
                  {
                      //pegando response retorno do servico
                     let res:Response = <Response>response;
+                
 
-                    console.log(res.codigo)
-                   
 
                    
                      //se retorna 1 msg de sucesso e redireciona para consulta
@@ -112,6 +117,7 @@ export class CadastroComponent implements OnInit {
                      alert(erro);
 
                  });
+                 
 
         }
 

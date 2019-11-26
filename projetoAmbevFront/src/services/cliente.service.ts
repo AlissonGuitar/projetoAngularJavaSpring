@@ -68,6 +68,7 @@ export class ClienteService{
     alteraCliente(cliente:Cliente)
     {
         return this.http.put(this.baseUrlService,JSON.stringify(cliente),{ headers: this.headers }).pipe();
+       
 
     }
 

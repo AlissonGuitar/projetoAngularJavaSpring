@@ -3,10 +3,8 @@ package com.example.projetoambev.model;
 
 import br.com.safeguard.constraint.annotations.Verify;
 import br.com.safeguard.types.ParametroTipo;
-import com.example.projetoambev.validacoes.ValidaCPF;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Table(name="vendedor")
 @Entity
@@ -15,10 +13,10 @@ public class VendedorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cod_vendedor")
-    private Long cod_vendedor;
+    private Long codVendedor;
     @Verify(ParametroTipo.CPF)
     private  String CPF;
-    private String raz_social;
+    private String razSocial;
     private  String latitude;
     private String longitude;
 
@@ -26,11 +24,11 @@ public class VendedorModel {
 
 
     public Long getCodVendedor() {
-        return cod_vendedor;
+        return codVendedor;
     }
 
     public void setCodVendedor(Long codVendedor) {
-        this.cod_vendedor = codVendedor;
+        this.codVendedor = codVendedor;
     }
 
     public String getCPF() {
@@ -45,11 +43,11 @@ public class VendedorModel {
     }
 
     public String getRazSocial() {
-        return raz_social;
+        return razSocial;
     }
 
     public void setRazSocial(String razSocial) {
-        this.raz_social = razSocial;
+        this.razSocial = razSocial;
     }
 
     public String getLatitude() {

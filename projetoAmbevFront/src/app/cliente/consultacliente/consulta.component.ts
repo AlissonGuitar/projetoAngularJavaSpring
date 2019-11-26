@@ -69,10 +69,10 @@ import { OrderPipe } from 'ngx-order-pipe';
  
     }
  
-    editar(codCliente:number):void{
+    editar(cod_cliente:number):void{
      
-      
-      this.router.navigate(['/cadastro-cliente',codCliente]);
+       console.log(cod_cliente)
+      this.router.navigate(['/cadastro-cliente',cod_cliente]);
  
     }
 

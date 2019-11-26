@@ -26,14 +26,13 @@ public class ClienteController {
     //Inclusao de um cliente
 
     @PostMapping(value = "/clienteModels")
-
     public @ResponseBody
     ResponseClienteModel salvar(@RequestBody ClienteModel clienteModel) {
         return this.clienteService.salvar(clienteModel);
     }
 
     //Alteração de um cliente
-    @PutMapping(value = "/clienteModels/")
+    @PutMapping(value = "/clienteModels")
     public @ResponseBody
     ResponseClienteModel alterar(@RequestBody ClienteModel clienteModel) {
         return this.clienteService.alterar(clienteModel);

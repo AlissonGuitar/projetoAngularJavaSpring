@@ -46,7 +46,7 @@ export class VendedorComponent implements OnInit {
   salvarVendedor():void
   {
     //verifica codigo e insere
-      if(this.vendedor.cod_vendedor == undefined)
+      if(this.vendedor.codVendedor == undefined)
       {
          // chamando servico para cadastrar
            this.vendedorService.addVendedor(this.vendedor).subscribe(response =>
