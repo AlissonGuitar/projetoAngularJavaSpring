@@ -7,8 +7,10 @@ import br.com.safeguard.interfaces.Check;
 import br.com.safeguard.types.ParametroTipo;
 import com.example.projetoambev.validacoes.ValidaCNPJ;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Table(name="cliente")
@@ -16,7 +18,7 @@ import java.io.Serializable;
 public class ClienteModel  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "cod_cliente")
     private Long codCliente;
 
@@ -25,7 +27,9 @@ public class ClienteModel  {
     private VendedorModel vendedorModel;
 
 
-    @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
+   // @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
+    @NotEmpty(message = "CNPJ nao pode ser vazio")
+    @CNPJ(message = "CNPJ invalido")
     private  String CNPJ;
 
 
