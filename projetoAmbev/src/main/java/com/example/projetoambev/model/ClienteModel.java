@@ -6,11 +6,13 @@ import br.com.safeguard.constraint.annotations.Verify;
 import br.com.safeguard.interfaces.Check;
 import br.com.safeguard.types.ParametroTipo;
 import com.example.projetoambev.validacoes.ValidaCNPJ;
+import com.example.projetoambev.validacoes.ValidaCPF;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Table(name="cliente")
@@ -30,7 +32,9 @@ public class ClienteModel  {
    // @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
     @NotEmpty(message = "CNPJ nao pode ser vazio")
     @CNPJ(message = "CNPJ invalido")
+    @Size(min=18)
     private  String CNPJ;
+
 
 
 

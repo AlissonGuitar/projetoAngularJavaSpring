@@ -4,6 +4,7 @@ import { VendedorComponent } from '../cadastro/vendedor.component';
 import { VendedorService } from 'src/services/vendedor.service';
 import { Router } from '@angular/router';
 import {Response} from '../../../services/response';
+import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 
 @Component({
   selector: 'app-consulta-vendedor',
@@ -25,7 +26,7 @@ export class ConsultaVendedorComponent implements OnInit {
  
       /*SETA O TÍTULO */
     
-      this.titulo = "Registros Cadastrados";
+      this.titulo = "Vendedores Cadastrados";
      
 
  
@@ -68,11 +69,29 @@ export class ConsultaVendedorComponent implements OnInit {
     }
  
     editar(codVendedor:number):void{
-     
-      
-       
       this.router.navigate(['/cadastro-vendedor',codVendedor]);
- 
+
     }
+
+    download(){
+      // this.clienteService.downloadFile(this.clientes, 'clientes');
+      new AngularCsv(this.vendedores,"Vendedores",this.csvOptions)
+      
+      }
+    
+    
+      csvOptions = {
+        fieldSeparator: ',',
+        quoteStrings: '"',
+        decimalseparator: '.',
+        showLabels: true,
+        showTitle: true,
+        title: 'Vendedores :',
+        useBom: true,
+        noDownload: false,
+        headers: ["Codigo do Vendedor","CPF","Nome do Vendedor", "Latitude", "Longitude"]
+      };
+    
+    
 
 }

@@ -5,6 +5,7 @@ import br.com.safeguard.constraint.annotations.Verify;
 import br.com.safeguard.types.ParametroTipo;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Table(name="vendedor")
 @Entity

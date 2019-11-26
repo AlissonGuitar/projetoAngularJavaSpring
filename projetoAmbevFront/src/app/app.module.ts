@@ -14,6 +14,8 @@ import { VendedorComponent } from './vendedor/cadastro/vendedor.component';
 import { ConsultaVendedorComponent } from './vendedor/consulta-vendedor/consulta-vendedor.component';
 
 import { OrderModule } from 'ngx-order-pipe'; 
+import { CsvService } from 'angular2-json2csv';
+import { FiltroPipe } from './filtro.pipe';
 
 
 
@@ -27,6 +29,7 @@ import { OrderModule } from 'ngx-order-pipe';
     CadastroComponent,
     VendedorComponent,
     ConsultaVendedorComponent,
+    FiltroPipe,
    
 
 

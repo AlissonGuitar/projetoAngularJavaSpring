@@ -10,6 +10,9 @@ import {Cliente} from '../../../services/cliente';
 import {Response} from '../../../services/response';
 import { CadastroComponent } from '../cadastro/cadastro-cliente.component';
 import { OrderPipe } from 'ngx-order-pipe';
+import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+
+
  
 @Component({
     selector: 'app-consulta-cliente',
@@ -30,7 +33,7 @@ import { OrderPipe } from 'ngx-order-pipe';
  
       /*SETA O TÍTULO */
     
-      this.titulo = "Registros Cadastrados";
+      this.titulo = "Clientes Cadastrados";
     
  
       /*CHAMA O SERVIÇO E RETORNA TODAS OS CLIENTES CADASTRADOS */
@@ -76,15 +79,37 @@ import { OrderPipe } from 'ngx-order-pipe';
  
     }
 
+    pesquisarCliente(codCliente:number):void
+    {
+      this.clienteService.getCliente(codCliente).subscribe(response =>{
+      
+      });
 
-     // Configuração da ordenação
-     key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
-     reverse: boolean = false;
-     sort(key) {
-         this.key = key;
-         this.reverse = !this.reverse;
 
-     }
+    }
+
+
+  download(){
+  // this.clienteService.downloadFile(this.clientes, 'clientes');
+  new AngularCsv(this.clientes,"Clientes",this.csvOptions)
+  
+  }
+
+
+  csvOptions = {
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalseparator: '.',
+    showLabels: true,
+    showTitle: true,
+    title: 'Clientes :',
+    useBom: true,
+    noDownload: false,
+    headers: ["Codigo do cliente","CNPJ" ,"Razao Social", "Latitude", "Longitude"]
+  };
+
+
+  
  
   }
 

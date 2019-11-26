@@ -1,7 +1,11 @@
 <h3> {{titulo}}</h3>
 
 
-<!--input type="text" [(ngModel)]="filtro"-->
+<input type="text" label="Pesquisar cliente">
+<!--button type="button" ngModel="filtro">Pesquisar</button-->
+<button type="button" (click)="download()"> Importar Csv </button>
+<br>
+<br>
 <table>
     <thead>
         <tr>
@@ -20,9 +24,8 @@
     </thead>
 
 
-
     <tbody>
-        <tr *ngFor=" let cliente of clientes|orderBy:order; let i = index;">
+        <tr *ngFor=" let cliente of clientes;let i = index">
 
             <td>{{cliente.codCliente}}</td>
             <td>{{cliente.cnpj}}</td>
@@ -35,6 +38,10 @@
 
         <tr>
             <td colspan="8" style="text-align: right;">Total de Registros: {{ clientes.length }}</td>
+
         </tr>
+        <br>
+
+
     </tbody>
 </table>

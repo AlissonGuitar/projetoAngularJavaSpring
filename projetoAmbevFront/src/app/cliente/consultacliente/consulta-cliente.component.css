@@ -25,3 +25,8 @@ a {
     cursor: hand;
     text-decoration: underline;
 }
+
+button {
+    background-color: #213E8D;
+    color: white;
+}
