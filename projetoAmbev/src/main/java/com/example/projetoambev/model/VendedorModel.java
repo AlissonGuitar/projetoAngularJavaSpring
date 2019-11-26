@@ -20,8 +20,16 @@ public class VendedorModel {
     private  String latitude;
     private String longitude;
 
+   public VendedorModel(){}
 
 
+    public VendedorModel(Long codVendedor, String CPF, String razSocial, String latitude, String longitude) {
+        this.codVendedor = codVendedor;
+        this.CPF = CPF;
+        this.razSocial = razSocial;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public Long getCodVendedor() {
         return codVendedor;
@@ -36,11 +44,7 @@ public class VendedorModel {
     }
 
 
-    public void setCPF(String CPF) {
-
-        this.CPF = CPF;
-
-    }
+    public void setCPF(String CPF) { this.CPF = CPF; }
 
     public String getRazSocial() {
         return razSocial;

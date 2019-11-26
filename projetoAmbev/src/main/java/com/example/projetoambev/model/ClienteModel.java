@@ -25,7 +25,7 @@ public class ClienteModel  {
     private VendedorModel vendedorModel;
 
 
-    @Verify(ParametroTipo.CNPJ)
+    @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
     private  String CNPJ;
 
 
@@ -33,6 +33,17 @@ public class ClienteModel  {
     private String razSocial;
     private  String latitude;
     private String longitude;
+
+    public ClienteModel(){}
+
+    public ClienteModel(Long codCliente, VendedorModel vendedorModel, String CNPJ, String razSocial, String latitude, String longitude) {
+        this.codCliente = codCliente;
+        this.vendedorModel = vendedorModel;
+        this.CNPJ = CNPJ;
+        this.razSocial = razSocial;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 
     public Long getCodCliente() {
         return codCliente;
@@ -62,7 +73,7 @@ public class ClienteModel  {
         return razSocial;
     }
 
-    public void setRazSocial(String raz_social) {
+    public void setRazSocial(String razSocial) {
         this.razSocial = razSocial;
     }
 
