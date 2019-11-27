@@ -74,7 +74,7 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
  
     editar(cod_cliente:number):void{
      
-       console.log(cod_cliente)
+  
       this.router.navigate(['/cadastro-cliente',cod_cliente]);
  
     }

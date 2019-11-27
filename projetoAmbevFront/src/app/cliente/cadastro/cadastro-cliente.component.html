@@ -6,7 +6,7 @@
 
 
     <label>CNPJ:
-        <input type="input" name="CNPJ"  size="14" [(ngModel)]="cliente.cnpj" />
+        <input mask="00.000.000/0000-00" [showMaskTyped]="true" type="input" name="CNPJ"  [(ngModel)]="cliente.cnpj" />
     </label><br/><br/>
 
     <label>Razão Social:
@@ -21,6 +21,12 @@
         <input type="input" name="Longitude" size="30" [(ngModel)]="cliente.longitude"/>
     </label><br/><br/>
     <button type="submit">Cadastrar</button>
+
+
+
+
+
+
 
 
 </form>

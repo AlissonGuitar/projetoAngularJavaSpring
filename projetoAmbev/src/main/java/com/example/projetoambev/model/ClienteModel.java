@@ -30,8 +30,8 @@ public class ClienteModel  {
 
 
    // @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
-    @NotEmpty(message = "CNPJ nao pode ser vazio")
-    @CNPJ(message = "CNPJ invalido")
+   // @CNPJ(message = "CNPJ invalido")
+    @Column(unique = true)
     private  String CNPJ;
 
 

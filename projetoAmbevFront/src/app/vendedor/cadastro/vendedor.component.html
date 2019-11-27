@@ -4,7 +4,7 @@
     <h3>{{titulo}}</h3>
 
     <label>CPF:
-        <input type="input" name="cpf" size="14"  [(ngModel)]="vendedor.cpf" />
+        <input mask="000.000.000-00" [showMaskTyped]="true" type="input" name="cpf" size="14"  [(ngModel)]="vendedor.cpf" />
 
     </label><br/><br/>
 

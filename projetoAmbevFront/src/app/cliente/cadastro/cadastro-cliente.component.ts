@@ -8,6 +8,7 @@ import { ConsultaComponent } from '../consultacliente/consulta.component';
 
 
 
+
 @Component({
     selector: 'app-cadastro-cliente',
     templateUrl: '/cadastro-cliente.component.html',

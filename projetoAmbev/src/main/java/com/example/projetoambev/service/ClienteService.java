@@ -6,6 +6,7 @@ import com.example.projetoambev.model.ClienteModel;
 import com.example.projetoambev.model.ResponseClienteModel;
 import com.example.projetoambev.repository.ClienteRepository;
 import com.example.projetoambev.validacoes.ValidaCNPJ;
+import com.example.projetoambev.validacoes.ValidaCPFandCNPJ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +20,22 @@ public class  ClienteService {
     private ClienteRepository clienteRepository;
 
 
+
     public ResponseClienteModel salvar(ClienteModel clienteModel)
     {
         //inclusao cliente
         try {
 
-                this.clienteRepository.save(clienteModel);
-                return new ResponseClienteModel(1, "Cliente salvo com Sucesso");
+                 if(clienteRepository.existsByCNPJ(clienteModel.getCNPJ()) || !ValidaCPFandCNPJ.isValid(clienteModel.getCNPJ()))
+                 {
+                     return  new ResponseClienteModel(0,"CNPJ já existe ou é invalido");
+                 }
+                 else
+                 {
+                     this.clienteRepository.save(clienteModel);
+                     return new ResponseClienteModel(1, "Cliente salvo com Sucesso");
+                 }
+
 
 
         }

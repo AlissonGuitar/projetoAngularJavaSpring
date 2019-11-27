@@ -12,7 +12,7 @@ public class ValidaCPF {
                 CPF.equals("66666666666") || CPF.equals("77777777777") ||
                 CPF.equals("88888888888") || CPF.equals("99999999999") ||
                 (CPF.length() != 11))
-            return(false);
+            return(true);
 
         char dig10, dig11;
         int sm, i, r, num, peso;
@@ -52,10 +52,10 @@ public class ValidaCPF {
 
             // Verifica se os digitos calculados conferem com os digitos informados.
             if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
-                return(true);
-            else return(false);
+                return(false);
+            else return(true);
         } catch (InputMismatchException erro) {
-            return(false);
+            return(true);
         }
     }
 
