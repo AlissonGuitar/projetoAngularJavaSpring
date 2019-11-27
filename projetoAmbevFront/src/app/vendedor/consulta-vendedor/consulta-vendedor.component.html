@@ -1,12 +1,20 @@
 <h3> {{titulo}}</h3>
-
+<input type="text" name="search" [(ngModel)]="filter">
+<br>
+<button type="button" (click)="download()"> Importar Csv </button>
+<br>
+<br>
 
 <table>
     <thead>
         <tr>
-            <th>Código do Vendedor</th>
+            <th (click)="sort('codVendedor')">#Código do Vendedor
+                <span *ngIf="key =='codVendedor'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
             <th>CPF</th>
-            <th>Razão Social</th>
+            <th (click)="sort('razSocial')">#Razão Social
+                <span *ngIf="key =='razSocial'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
             <th>Latitude</th>
             <th>Longitude</th>
             <th>Alterar</th>
@@ -15,7 +23,7 @@
     </thead>
 
     <tbody>
-        <tr *ngFor="let vendedor of vendedores; let i = index">
+        <tr *ngFor="let vendedor of vendedores| orderBy: key:reverse | filter:filter; let i = index">
             <td>{{vendedor.codVendedor}}</td>
             <td>{{vendedor.cpf}}</td>
             <td>{{vendedor.razSocial}}</td>
@@ -26,8 +34,8 @@
         </tr>
 
         <tr>
-            <td colspan="6" style="text-align: right;">Total de Registros: {{ vendedores.length }}</td>
+            <td colspan="8" style="text-align: right;">Total de Registros: {{ vendedores.length }}</td>
         </tr>
-        <button type="button" class="btn btn-lg btn-primary" (click)="download()"> Importar Csv </button>
     </tbody>
+
 </table>

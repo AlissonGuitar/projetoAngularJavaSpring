@@ -5,6 +5,7 @@ import { VendedorService } from 'src/services/vendedor.service';
 import { Router } from '@angular/router';
 import {Response} from '../../../services/response';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-consulta-vendedor',
@@ -19,7 +20,7 @@ export class ConsultaVendedorComponent implements OnInit {
     private vendedorComponent:VendedorComponent;
     
  
-    constructor(private vendedorService:VendedorService,
+    constructor(private orderPipe:OrderPipe,private vendedorService:VendedorService,
                 private router: Router){}
  
     ngOnInit() {
@@ -91,6 +92,13 @@ export class ConsultaVendedorComponent implements OnInit {
         noDownload: false,
         headers: ["Codigo do Vendedor","CPF","Nome do Vendedor", "Latitude", "Longitude"]
       };
+
+      key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
+  reverse: boolean = false;
+  sort(key) {
+      this.key = key;
+      this.reverse = !this.reverse;
+  }
     
     
 

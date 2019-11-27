@@ -7,13 +7,14 @@ import {Response} from '../../../services/response';
 import { ConsultaComponent } from '../consultacliente/consulta.component';
 
 
+
 @Component({
     selector: 'app-cadastro-cliente',
     templateUrl: '/cadastro-cliente.component.html',
     styleUrls:["/cadastro-cliente.component.css"]
 })
 export class CadastroComponent implements OnInit {
-
+ 
     private titulo:string;
     codigo:number;
     private cliente:Cliente = new Cliente();
@@ -23,6 +24,7 @@ export class CadastroComponent implements OnInit {
 
     constructor(private router:Router,private activatedRoute:ActivatedRoute, private clienteService: ClienteService)
      {
+         
      }
 
       //carregado no inicializacao do componente
@@ -120,6 +122,9 @@ export class CadastroComponent implements OnInit {
                  
 
         }
+        
+
+        
 
 
     }

@@ -11,7 +11,6 @@
     <thead>
 
 
-
         <tr>
             <th (click)="sort('codCliente')">#Código do Cliente
                 <span *ngIf="key =='codCliente'">{{reverse ? '▲' : '▼'}}</span>
@@ -26,36 +25,30 @@
             <th>Excluir</th>
         </tr>
 
-        <thead>
+    </thead>
 
 
 
 
 
-        </thead>
+    <tbody>
+        <tr *ngFor=" let cliente of clientes| orderBy: key:reverse | filter:filter;let i = index">
+
+            <td>{{cliente.codCliente}}</td>
+            <td>{{cliente.cnpj}}</td>
+            <td>{{cliente.razSocial}}</td>
+            <td>{{cliente.latitude}}</td>
+            <td>{{cliente.longitude}}</td>
+            <td><a (click)="editar(cliente.codCliente);">Alterar</a></td>
+            <td><a (click)="excluir(cliente.codCliente, i);">Excluir</a></td>
+        </tr>
+
+        <tr>
+            <td colspan="8" style="text-align: right;">Total de Registros: {{ clientes.length }}</td>
+
+        </tr>
+        <br>
 
 
-
-
-
-        <tbody>
-            <tr *ngFor=" let cliente of clientes| orderBy: key:reverse | filter:filter;let i = index">
-
-                <td>{{cliente.codCliente}}</td>
-                <td>{{cliente.cnpj}}</td>
-                <td>{{cliente.razSocial}}</td>
-                <td>{{cliente.latitude}}</td>
-                <td>{{cliente.longitude}}</td>
-                <td><a (click)="editar(cliente.codCliente);">Alterar</a></td>
-                <td><a (click)="excluir(cliente.codCliente, i);">Excluir</a></td>
-            </tr>
-
-            <tr>
-                <td colspan="8" style="text-align: right;">Total de Registros: {{ clientes.length }}</td>
-
-            </tr>
-            <br>
-
-
-        </tbody>
+    </tbody>
 </table>

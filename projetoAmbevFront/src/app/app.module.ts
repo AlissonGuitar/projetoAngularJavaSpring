@@ -20,6 +20,9 @@ import { FiltroPipe } from './filtro.pipe';
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,8 @@ import { FiltroPipe } from './filtro.pipe';
     VendedorComponent,
     ConsultaVendedorComponent,
     FiltroPipe,
+  
+   
    
 
 
@@ -42,7 +47,10 @@ import { FiltroPipe } from './filtro.pipe';
     FormsModule,
     AppRouting,
     OrderModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+  
+
+    
    
   ],
 
