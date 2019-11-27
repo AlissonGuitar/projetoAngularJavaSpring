@@ -17,6 +17,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FiltroPipe } from './filtro.pipe';
 import { NgxMaskModule } from 'ngx-mask'
+import { IgxCsvExporterService } from "igniteui-angular";
 
 
 
@@ -59,7 +60,9 @@ import { NgxMaskModule } from 'ngx-mask'
    
   ],
 
-  providers: [],
+  providers: [
+    IgxCsvExporterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

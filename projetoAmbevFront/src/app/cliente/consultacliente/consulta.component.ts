@@ -11,6 +11,7 @@ import {Response} from '../../../services/response';
 import { CadastroComponent } from '../cadastro/cadastro-cliente.component';
 import { OrderPipe } from 'ngx-order-pipe';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
+import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes } from "igniteui-angular";
 
 
  
@@ -26,7 +27,7 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
     private cadastroComponent:CadastroComponent;
     
  
-    constructor(private orderPipe:OrderPipe,private clienteService:ClienteService,
+    constructor(private csvExportService: IgxCsvExporterService,private orderPipe:OrderPipe,private clienteService:ClienteService,
                 private router: Router){}
  
     ngOnInit() {
@@ -91,7 +92,9 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 
   download(){
   // this.clienteService.downloadFile(this.clientes, 'clientes');
-  new AngularCsv(this.clientes,"Clientes",this.csvOptions)
+ // new AngularCsv(this.clientes,"Clientes",this.csvOptions)
+ const opt: IgxCsvExporterOptions = new IgxCsvExporterOptions("Clientes", CsvFileTypes.CSV);
+ this.csvExportService.exportData(this.clientes, opt);
   
   }
 

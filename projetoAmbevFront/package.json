@@ -25,6 +25,7 @@
         "angular5-csv": "^0.2.11",
         "angular7-csv": "^0.2.12",
         "bootstrap": "^4.3.1",
+        "igniteui-angular": "^8.2.10",
         "js-brasil": "^2.0.0",
         "ng-brazil": "^1.4.0",
         "ng2-search-filter": "^0.5.1",
