@@ -24,9 +24,6 @@ public class  ClienteService {
         //inclusao cliente
         try {
 
-
-
-
                 this.clienteRepository.save(clienteModel);
                 return new ResponseClienteModel(1, "Cliente salvo com Sucesso");
 

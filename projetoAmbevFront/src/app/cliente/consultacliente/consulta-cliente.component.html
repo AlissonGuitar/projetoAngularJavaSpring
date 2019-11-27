@@ -1,47 +1,61 @@
 <h3> {{titulo}}</h3>
 
 
-<input type="text" label="Pesquisar cliente">
-<!--button type="button" ngModel="filtro">Pesquisar</button-->
+
+<input type="text" name="search" [(ngModel)]="filter">
+<br>
 <button type="button" (click)="download()"> Importar Csv </button>
 <br>
 <br>
 <table>
     <thead>
+
+
+
         <tr>
-            <th>Código do Cliente</th>
+            <th (click)="sort('codCliente')">#Código do Cliente
+                <span *ngIf="key =='codCliente'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
             <th>CNPJ</th>
-            <th>Razão Social</th>
+            <th (click)="sort('razSocial')">#Razão Social
+                <span *ngIf="key =='razSocial'">{{reverse ? '▲' : '▼'}}</span>
+            </th>
             <th>Latitude</th>
             <th>Longitude</th>
             <th>Alterar</th>
             <th>Excluir</th>
         </tr>
 
+        <thead>
 
 
 
-    </thead>
 
 
-    <tbody>
-        <tr *ngFor=" let cliente of clientes;let i = index">
-
-            <td>{{cliente.codCliente}}</td>
-            <td>{{cliente.cnpj}}</td>
-            <td>{{cliente.razSocial}}</td>
-            <td>{{cliente.latitude}}</td>
-            <td>{{cliente.longitude}}</td>
-            <td><a (click)="editar(cliente.codCliente);">Alterar</a></td>
-            <td><a (click)="excluir(cliente.codCliente, i);">Excluir</a></td>
-        </tr>
-
-        <tr>
-            <td colspan="8" style="text-align: right;">Total de Registros: {{ clientes.length }}</td>
-
-        </tr>
-        <br>
+        </thead>
 
 
-    </tbody>
+
+
+
+        <tbody>
+            <tr *ngFor=" let cliente of clientes| orderBy: key:reverse | filter:filter;let i = index">
+
+                <td>{{cliente.codCliente}}</td>
+                <td>{{cliente.cnpj}}</td>
+                <td>{{cliente.razSocial}}</td>
+                <td>{{cliente.latitude}}</td>
+                <td>{{cliente.longitude}}</td>
+                <td><a (click)="editar(cliente.codCliente);">Alterar</a></td>
+                <td><a (click)="excluir(cliente.codCliente, i);">Excluir</a></td>
+            </tr>
+
+            <tr>
+                <td colspan="8" style="text-align: right;">Total de Registros: {{ clientes.length }}</td>
+
+            </tr>
+            <br>
+
+
+        </tbody>
 </table>

@@ -14,7 +14,7 @@ import { VendedorComponent } from './vendedor/cadastro/vendedor.component';
 import { ConsultaVendedorComponent } from './vendedor/consulta-vendedor/consulta-vendedor.component';
 
 import { OrderModule } from 'ngx-order-pipe'; 
-import { CsvService } from 'angular2-json2csv';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FiltroPipe } from './filtro.pipe';
 
 
@@ -41,7 +41,8 @@ import { FiltroPipe } from './filtro.pipe';
     CommonModule,
     FormsModule,
     AppRouting,
-    OrderModule
+    OrderModule,
+    Ng2SearchPipeModule
    
   ],
 

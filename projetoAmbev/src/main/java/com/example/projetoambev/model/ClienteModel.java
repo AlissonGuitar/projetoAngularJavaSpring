@@ -32,7 +32,6 @@ public class ClienteModel  {
    // @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
     @NotEmpty(message = "CNPJ nao pode ser vazio")
     @CNPJ(message = "CNPJ invalido")
-    @Size(min=18)
     private  String CNPJ;
 
 

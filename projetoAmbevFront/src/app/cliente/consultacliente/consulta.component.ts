@@ -109,6 +109,14 @@ import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
   };
 
 
+  key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
+  reverse: boolean = false;
+  sort(key) {
+      this.key = key;
+      this.reverse = !this.reverse;
+  }
+
+
   
  
   }
