@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import {Response} from '../../../services/response';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
 import { OrderPipe } from 'ngx-order-pipe';
+import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes } from "igniteui-angular";
 
 @Component({
   selector: 'app-consulta-vendedor',
@@ -13,14 +14,14 @@ import { OrderPipe } from 'ngx-order-pipe';
   styleUrls: ['./consulta-vendedor.component.css']
 })
 export class ConsultaVendedorComponent implements OnInit {
-
+   filter;
   vendedores: Vendedor[] = new Array();
     titulo:string;
     teste:string;
     private vendedorComponent:VendedorComponent;
     
  
-    constructor(private orderPipe:OrderPipe,private vendedorService:VendedorService,
+    constructor(private csvExportService: IgxCsvExporterService,private orderPipe:OrderPipe,private vendedorService:VendedorService,
                 private router: Router){}
  
     ngOnInit() {
@@ -76,7 +77,9 @@ export class ConsultaVendedorComponent implements OnInit {
 
     download(){
       // this.clienteService.downloadFile(this.clientes, 'clientes');
-      new AngularCsv(this.vendedores,"Vendedores",this.csvOptions)
+     // new AngularCsv(this.vendedores,"Vendedores",this.csvOptions)
+     const opt: IgxCsvExporterOptions = new IgxCsvExporterOptions( " ",CsvFileTypes.CSV);
+ this.csvExportService.exportData(this.vendedores, opt);
       
       }
     

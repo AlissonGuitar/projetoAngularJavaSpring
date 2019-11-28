@@ -19,6 +19,7 @@
         "@angular/platform-browser": "~8.2.14",
         "@angular/platform-browser-dynamic": "~8.2.14",
         "@angular/router": "~8.2.14",
+        "angular-filter": "^0.5.17",
         "angular-input-masks": "^4.4.1",
         "angular2-json2csv": "^1.1.2",
         "angular2-text-mask": "^9.0.0",

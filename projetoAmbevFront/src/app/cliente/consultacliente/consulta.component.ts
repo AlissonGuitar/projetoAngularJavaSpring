@@ -11,7 +11,7 @@ import {Response} from '../../../services/response';
 import { CadastroComponent } from '../cadastro/cadastro-cliente.component';
 import { OrderPipe } from 'ngx-order-pipe';
 import { AngularCsv } from 'angular7-csv/dist/Angular-csv'
-import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes } from "igniteui-angular";
+import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExportingEventArgs} from "igniteui-angular";
 
 
  
@@ -21,7 +21,7 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes } from "igni
     styleUrls:["./consulta-cliente.component.css"]
   })
   export class ConsultaComponent implements OnInit {
- 
+     filter;
     clientes: Cliente[] = new Array();
     titulo:string;
     private cadastroComponent:CadastroComponent;
@@ -93,10 +93,15 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes } from "igni
   download(){
   // this.clienteService.downloadFile(this.clientes, 'clientes');
  // new AngularCsv(this.clientes,"Clientes",this.csvOptions)
- const opt: IgxCsvExporterOptions = new IgxCsvExporterOptions("Clientes", CsvFileTypes.CSV);
+ const opt: IgxCsvExporterOptions = new IgxCsvExporterOptions( " ",CsvFileTypes.CSV);
  this.csvExportService.exportData(this.clientes, opt);
-  
   }
+
+ 
+  
+
+
+  
 
 
   csvOptions = {
