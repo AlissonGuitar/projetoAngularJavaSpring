@@ -1,4 +1,12 @@
-<h3> {{titulo}}</h3>
+<h3 class="titulo1"> {{titulo1}}</h3>
+
+<h3 class="titulo2">{{titulo2}}</h3>
+<div>
+    <p> {{ hoje | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+</div>
+<br><br>
+<br>
+<label>Filtro por Nome</label>
 <input type="text" name="search" [(ngModel)]="filter">
 <br>
 <button type="button" (click)="download()"> Importar Csv </button>

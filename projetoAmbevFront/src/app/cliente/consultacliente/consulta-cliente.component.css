@@ -26,7 +26,29 @@ a {
     text-decoration: underline;
 }
 
-button {
-    background-color: #213E8D;
-    color: white;
+.titulo1 {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.titulo2 {
+    margin: 0;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+p {
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 95%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 }

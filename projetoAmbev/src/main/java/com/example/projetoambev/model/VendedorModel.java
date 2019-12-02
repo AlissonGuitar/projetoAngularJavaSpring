@@ -12,13 +12,13 @@ import java.util.Set;
 
 @Table(name="vendedor")
 @Entity
+@SequenceGenerator(name="vendedor_sequence", allocationSize = 1)
 public class VendedorModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_vendedor")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "vendedor_sequence")
     @Column(name = "cod_vendedor")
     private Long codVendedor;
-    @Verify(ParametroTipo.CPF)
     private  String CPF;
     private String razSocial;
     private  String latitude;

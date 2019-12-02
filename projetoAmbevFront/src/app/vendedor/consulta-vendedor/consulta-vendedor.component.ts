@@ -16,9 +16,11 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes } from "igni
 export class ConsultaVendedorComponent implements OnInit {
    filter;
   vendedores: Vendedor[] = new Array();
-    titulo:string;
+    titulo1:string;
+    titulo2:string;
     teste:string;
     private vendedorComponent:VendedorComponent;
+    hoje: number = Date.now();
     
  
     constructor(private csvExportService: IgxCsvExporterService,private orderPipe:OrderPipe,private vendedorService:VendedorService,
@@ -28,8 +30,8 @@ export class ConsultaVendedorComponent implements OnInit {
  
       /*SETA O TÍTULO */
     
-      this.titulo = "Vendedores Cadastrados";
-     
+      this.titulo1 = "Relatório de Vendedores";
+      this.titulo2="Projeto Ambev"
 
  
       /*CHAMA O SERVIÇO E RETORNA TODAS OS Vendedores CADASTRADOS */

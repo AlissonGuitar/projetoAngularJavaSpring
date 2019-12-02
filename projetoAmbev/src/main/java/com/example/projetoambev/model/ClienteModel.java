@@ -5,17 +5,18 @@ import javax.persistence.*;
 
 @Table(name="cliente")
 @Entity
+@SequenceGenerator(name="cliente_sequence", allocationSize = 1)
 public class ClienteModel  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_cliente")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "cliente_sequence")
     @Column(name = "cod_cliente")
     private Long codCliente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "cod_vendedor")
     private VendedorModel vendedorModel;
-    @Column(unique = true)
+
     private  String CNPJ;
     private String razSocial;
     private  String latitude;

@@ -21,10 +21,11 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
     styleUrls:["./consulta-cliente.component.css"]
   })
   export class ConsultaComponent implements OnInit {
-  
+    hoje: number = Date.now();
      filter;
     clientes: Cliente[] = new Array();
-    titulo:string;
+    titulo1:string;
+    titulo2:string;
     private cadastroComponent:CadastroComponent;
   filtroClientes: Cliente[];
    
@@ -38,7 +39,8 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
  
       /*SETA O TÍTULO */
     
-      this.titulo = "Clientes Cadastrados";
+      this.titulo1 = "Relatório de Clientes";
+      this.titulo2="Projeto Ambev"
     
  
       /*CHAMA O SERVIÇO E RETORNA TODAS OS CLIENTES CADASTRADOS */
