@@ -1,0 +1,46 @@
+<h3> {{titulo}}</h3>
+
+
+
+
+
+<br>
+<button type="button" (click)="download()"> Importar Csv </button>
+<br>
+<br>
+<table>
+    <thead>
+
+
+
+        <th>Codigo do Cliente</th>
+        <th>Razao Social Cliente</th>
+        <th>Codigo do Vendedor</th>
+        <th>Nome do Vendedor</th>
+        <th>Distancia entre o cliente e o Vendedor</th>
+
+
+
+    </thead>
+
+
+
+
+
+    <tbody>
+
+
+
+        <td>{{cliente.codCliente}}</td>
+        <td>{{cliente.razSocial}}</td>
+        <td>{{vendedor.codVendedor}}</td>
+        <td>{{vendedor.razSocial}}</td>
+
+
+
+
+        <br>
+
+
+    </tbody>
+</table>

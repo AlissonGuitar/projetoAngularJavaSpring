@@ -10,6 +10,7 @@ import {CadastroComponent} from './cliente/cadastro/cadastro-cliente.component';
 import { HomeComponent } from './home/home.component';
 import { VendedorComponent } from './vendedor/cadastro/vendedor.component';
 import { ConsultaVendedorComponent } from './vendedor/consulta-vendedor/consulta-vendedor.component';
+import { DistribuicaoComponent } from './distribuicao/distribuicao.component';
 
 
 
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     { path: 'consulta-vendedor',         component: ConsultaVendedorComponent},
     {path: 'cadastro-vendedor',         component:VendedorComponent},
     {path: 'cadastro-vendedor/:codigo', component:VendedorComponent},
+    {path:'distribuicao',                component:DistribuicaoComponent}
                                           
     
     

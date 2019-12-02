@@ -18,6 +18,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FiltroPipe } from './filtro.pipe';
 import { NgxMaskModule } from 'ngx-mask'
 import { IgxCsvExporterService } from "igniteui-angular";
+import { DistribuicaoComponent } from './distribuicao/distribuicao.component';
 
 
 
@@ -37,6 +38,7 @@ import { IgxCsvExporterService } from "igniteui-angular";
     VendedorComponent,
     ConsultaVendedorComponent,
     FiltroPipe,
+    DistribuicaoComponent,
 
    
     
