@@ -2,8 +2,12 @@ package com.example.projetoambev.controller;
 
 
 
+import com.example.projetoambev.model.ClienteModel;
 import com.example.projetoambev.model.ResponseVendedorModel;
 import com.example.projetoambev.model.VendedorModel;
+import com.example.projetoambev.repository.ClienteRepository;
+import com.example.projetoambev.repository.VendedorRepository;
+import com.example.projetoambev.service.ClienteService;
 import com.example.projetoambev.service.VendedorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,8 +19,14 @@ import java.util.Optional;
 @RestController
 public class VendedorController {
 
+    VendedorRepository vendedorRepository;
+    ClienteRepository clienteRepository;
+
     @Autowired
     private VendedorService vendedorService;
+
+    @Autowired
+    private ClienteService clienteService;
 
 
     //Inclusao de um vendedor
@@ -64,4 +74,7 @@ public class VendedorController {
 
         return this.vendedorService.excluir(codigo);
     }
+
+
+
 }

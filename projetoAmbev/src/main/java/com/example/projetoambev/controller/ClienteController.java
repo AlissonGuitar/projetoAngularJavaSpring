@@ -1,12 +1,12 @@
 package com.example.projetoambev.controller;
 
+import com.example.projetoambev.repository.ClienteRepository;
 import com.example.projetoambev.service.ClienteService;
 import com.example.projetoambev.model.ResponseClienteModel;
 import com.example.projetoambev.model.ClienteModel;
 import com.example.projetoambev.service.VendedorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +21,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
     private VendedorService vendedorService;
+    ClienteRepository clienteRepository;
 
 
     //Inclusao de um cliente
@@ -48,11 +49,15 @@ public class ClienteController {
 
     //Buscar cliente por codigo
 
-    @RequestMapping(value = "/clienteModels/{cod_cliente}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/clienteModels/{cod_cliente}")
     public @ResponseBody
-    Optional<ClienteModel> buscar(@PathVariable("cod_cliente") Long codigo) {
+    Optional<ClienteModel> buscar(@PathVariable("cod_cliente") Long codigo)
+    {
+
         return this.clienteService.buscar(codigo);
     }
+
+
 
 
     //Excluir cliente
@@ -62,6 +67,9 @@ public class ClienteController {
     ResponseClienteModel excluir(@PathVariable("cod_cliente") Long codigo) {
         return this.clienteService.excluir(codigo);
     }
+
+
+
 
 
 

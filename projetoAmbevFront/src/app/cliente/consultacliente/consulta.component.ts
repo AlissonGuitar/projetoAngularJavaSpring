@@ -21,16 +21,20 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
     styleUrls:["./consulta-cliente.component.css"]
   })
   export class ConsultaComponent implements OnInit {
+  
      filter;
     clientes: Cliente[] = new Array();
     titulo:string;
     private cadastroComponent:CadastroComponent;
+  filtroClientes: Cliente[];
+   
     
  
     constructor(private csvExportService: IgxCsvExporterService,private orderPipe:OrderPipe,private clienteService:ClienteService,
                 private router: Router){}
  
     ngOnInit() {
+    
  
       /*SETA O TÍTULO */
     
@@ -40,7 +44,7 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
       /*CHAMA O SERVIÇO E RETORNA TODAS OS CLIENTES CADASTRADOS */
       this.clienteService.getClientes().subscribe(res => this.clientes = res);
     }
- 
+  
     /**EXCLUI UM REGISTRO QUANDO CLICAMOS NA OPÇÃO EXCLUIR DE UMA 
      * LINHA DA TABELA*/
     excluir(codCliente:number, index:number):void {
@@ -75,19 +79,15 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
  
     editar(cod_cliente:number):void{
      
-  
+    
       this.router.navigate(['/cadastro-cliente',cod_cliente]);
  
     }
 
-    pesquisarCliente(codCliente:number):void
-    {
-      this.clienteService.getCliente(codCliente).subscribe(response =>{
-      
-      });
+  
 
 
-    }
+    
 
 
   download(){
@@ -126,6 +126,16 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
 
 
   
- 
+  
   }
+
+
+ 
+  
+
+
+
+  
+ 
+  
 

@@ -6,6 +6,7 @@ import {Cliente} from '../services/cliente';
 import {ConfigService} from './config.service';
 import { RequestOptions } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Rx';
 
 
 
@@ -71,6 +72,7 @@ export class ClienteService{
        
 
     }
+
 
 
 

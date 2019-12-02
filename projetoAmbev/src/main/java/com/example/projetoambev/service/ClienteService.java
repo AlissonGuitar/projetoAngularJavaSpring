@@ -1,15 +1,13 @@
 package com.example.projetoambev.service;
 
-import br.com.safeguard.check.SafeguardCheck;
-import br.com.safeguard.interfaces.Check;
 import com.example.projetoambev.model.ClienteModel;
 import com.example.projetoambev.model.ResponseClienteModel;
 import com.example.projetoambev.repository.ClienteRepository;
-import com.example.projetoambev.validacoes.ValidaCNPJ;
 import com.example.projetoambev.validacoes.ValidaCPFandCNPJ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +16,7 @@ public class  ClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;
+    private ClienteModel clienteModel;
 
 
 
@@ -26,10 +25,14 @@ public class  ClienteService {
         //inclusao cliente
         try {
 
+
                  if(clienteRepository.existsByCNPJ(clienteModel.getCNPJ()) || !ValidaCPFandCNPJ.isValid(clienteModel.getCNPJ()))
+
                  {
                      return  new ResponseClienteModel(0,"CNPJ já existe ou é invalido");
                  }
+
+
                  else
                  {
                      this.clienteRepository.save(clienteModel);
@@ -68,6 +71,7 @@ public class  ClienteService {
     //Buscar cliente por codigo
     public Optional<ClienteModel> buscar(Long codigo)
     {
+
         return this.clienteRepository.findById(codigo);
     }
 
@@ -85,6 +89,14 @@ public class  ClienteService {
             return  new ResponseClienteModel(0,error.getMessage());
         }
     }
+
+
+
+
+
+
+
+
 
 
 }

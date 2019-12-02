@@ -12,16 +12,18 @@ import { VendedorComponent } from './vendedor/cadastro/vendedor.component';
 import { ConsultaVendedorComponent } from './vendedor/consulta-vendedor/consulta-vendedor.component';
 
 
+
  
 const appRoutes: Routes = [
-    { path: 'home',                    component: HomeComponent },
+    { path: 'home/',                    component: HomeComponent },
     { path: '',                        component: HomeComponent },
     { path: 'consulta-cliente',         component: ConsultaComponent },
     { path: 'cadastro-cliente',         component: CadastroComponent },
     { path: 'cadastro-cliente/:codigo', component: CadastroComponent },
     { path: 'consulta-vendedor',         component: ConsultaVendedorComponent},
     {path: 'cadastro-vendedor',         component:VendedorComponent},
-    {path: 'cadastro-vendedor/:codigo', component:VendedorComponent                          }                         
+    {path: 'cadastro-vendedor/:codigo', component:VendedorComponent},
+                                          
     
     
  

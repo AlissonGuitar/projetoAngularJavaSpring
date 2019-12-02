@@ -3,6 +3,10 @@
 
     <h3>{{titulo}}</h3>
 
+    <label>ID Vendedor:
+            <input  type="input" name="idVendedor"  [(ngModel)]="vendedor.codVendedor"  disabled/>
+        </label><br/><br/>
+
     <label>CPF:
         <input mask="000.000.000-00" [showMaskTyped]="true" type="input" name="cpf" size="14"  [(ngModel)]="vendedor.cpf" />
 

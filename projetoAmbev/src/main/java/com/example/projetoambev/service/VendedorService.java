@@ -1,13 +1,8 @@
 package com.example.projetoambev.service;
 
-import br.com.safeguard.constraint.annotations.Verify;
-import br.com.safeguard.types.ParametroTipo;
-import com.example.projetoambev.model.ClienteModel;
-import com.example.projetoambev.model.ResponseClienteModel;
 import com.example.projetoambev.model.ResponseVendedorModel;
 import com.example.projetoambev.model.VendedorModel;
 import com.example.projetoambev.repository.VendedorRepository;
-import com.example.projetoambev.validacoes.ValidaCPF;
 import com.example.projetoambev.validacoes.ValidaCPFandCNPJ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,5 +82,8 @@ public class VendedorService {
             return  new ResponseVendedorModel(0,error.getMessage());
         }
     }
+
+
+
 
 }

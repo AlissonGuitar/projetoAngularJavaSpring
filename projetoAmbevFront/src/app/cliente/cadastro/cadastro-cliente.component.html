@@ -5,6 +5,10 @@
 
 
 
+    <label>ID Cliente:
+        <input  type="input" name="idCliente"  [(ngModel)]="cliente.codCliente"  disabled/>
+    </label><br/><br/>
+
     <label>CNPJ:
         <input mask="00.000.000/0000-00" [showMaskTyped]="true" type="input" name="CNPJ"  [(ngModel)]="cliente.cnpj" />
     </label><br/><br/>

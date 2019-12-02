@@ -1,42 +1,22 @@
 package com.example.projetoambev.model;
 
 
-import br.com.safeguard.check.SafeguardCheck;
-import br.com.safeguard.constraint.annotations.Verify;
-import br.com.safeguard.interfaces.Check;
-import br.com.safeguard.types.ParametroTipo;
-import com.example.projetoambev.validacoes.ValidaCNPJ;
-import com.example.projetoambev.validacoes.ValidaCPF;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.validator.constraints.br.CNPJ;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import java.io.Serializable;
 
 @Table(name="cliente")
 @Entity
 public class ClienteModel  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_cliente")
     @Column(name = "cod_cliente")
     private Long codCliente;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="cod_vendedor")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cod_vendedor")
     private VendedorModel vendedorModel;
-
-
-   // @Verify(value =ParametroTipo.CNPJ,message = "CNPJ Invalido")
-   // @CNPJ(message = "CNPJ invalido")
     @Column(unique = true)
     private  String CNPJ;
-
-
-
-
     private String razSocial;
     private  String latitude;
     private String longitude;
@@ -64,12 +44,12 @@ public class ClienteModel  {
         return CNPJ;
     }
 
-    public VendedorModel getVendedormodel() {
+    public VendedorModel getVendedorModel() {
         return vendedorModel;
     }
 
-    public void setVendedormodel(VendedorModel vendedormodel) {
-        this.vendedorModel = vendedormodel;
+    public void setVendedorModel(VendedorModel vendedorModel) {
+        this.vendedorModel = vendedorModel;
     }
 
     public void setCNPJ(String CNPJ) {

@@ -6,13 +6,16 @@ import br.com.safeguard.types.ParametroTipo;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Table(name="vendedor")
 @Entity
 public class VendedorModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_vendedor")
     @Column(name = "cod_vendedor")
     private Long codVendedor;
     @Verify(ParametroTipo.CPF)

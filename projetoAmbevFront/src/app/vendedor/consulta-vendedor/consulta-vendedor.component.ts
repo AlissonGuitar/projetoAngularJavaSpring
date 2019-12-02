@@ -72,7 +72,11 @@ export class ConsultaVendedorComponent implements OnInit {
  
     editar(codVendedor:number):void{
       this.router.navigate(['/cadastro-vendedor',codVendedor]);
+      
 
+    }
+    cadastrarclienteneNesseVendedor(codVendedorForCliente:number):void{
+      this.router.navigate(['home',codVendedorForCliente]);
     }
 
     download(){

@@ -26,6 +26,7 @@ import { IgxCsvExporterService } from "igniteui-angular";
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,9 @@ import { IgxCsvExporterService } from "igniteui-angular";
     VendedorComponent,
     ConsultaVendedorComponent,
     FiltroPipe,
+
+   
+    
 
   
    
@@ -52,7 +56,9 @@ import { IgxCsvExporterService } from "igniteui-angular";
     AppRouting,
     OrderModule,
     Ng2SearchPipeModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+   
+    
  
   
 

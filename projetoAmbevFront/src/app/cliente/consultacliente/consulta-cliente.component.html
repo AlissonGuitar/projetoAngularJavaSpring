@@ -1,8 +1,9 @@
 <h3> {{titulo}}</h3>
 
 
+<input type="text" [(ngModel)]="filter">
 
-<input type="text" name="search" [(ngModel)]="filter">
+
 <br>
 <button type="button" (click)="download()"> Importar Csv </button>
 <br>
@@ -15,10 +16,12 @@
             <th (click)="sort('codCliente')">#Código do Cliente
                 <span *ngIf="key =='codCliente'">{{reverse ? '▲' : '▼'}}</span>
             </th>
+
             <th>CNPJ</th>
             <th (click)="sort('razSocial')">#Razão Social
                 <span *ngIf="key =='razSocial'">{{reverse ? '▲' : '▼'}}</span>
             </th>
+
             <th>Latitude</th>
             <th>Longitude</th>
             <th>Alterar</th>
@@ -32,7 +35,8 @@
 
 
     <tbody>
-        <tr *ngFor=" let cliente of clientes| orderBy: key:reverse | filter:filter;let i = index">
+        <tr *ngFor=" let cliente of clientes|filter:filter|orderBy: key:reverse;let i = index">
+
 
             <td>{{cliente.codCliente}}</td>
             <td>{{cliente.cnpj}}</td>

@@ -5,6 +5,9 @@ import {ClienteService} from '../../../services/cliente.service';
 import {Cliente} from '../../../services/cliente';
 import {Response} from '../../../services/response';
 import { ConsultaComponent } from '../consultacliente/consulta.component';
+import { Vendedor } from 'src/services/vendedor';
+import { VendedorService } from 'src/services/vendedor.service';
+import { FormGroup } from '@angular/forms';
 
 
 
@@ -15,12 +18,16 @@ import { ConsultaComponent } from '../consultacliente/consulta.component';
     styleUrls:["/cadastro-cliente.component.css"]
 })
 export class CadastroComponent implements OnInit {
- 
+
+  
     private titulo:string;
     codigo:number;
     private cliente:Cliente = new Cliente();
+    private vendedor :Vendedor= new Vendedor();
+    vendedores: Vendedor[] = new Array();
     route: any;
     private consulta:ConsultaComponent;
+    private vendedorService:VendedorService;
     
 
     constructor(private router:Router,private activatedRoute:ActivatedRoute, private clienteService: ClienteService)
@@ -36,7 +43,11 @@ export class CadastroComponent implements OnInit {
 
             if(parametro["codigo"] == undefined)
             {
+               
                 this.titulo = "Novo cadastro de clientes "
+     
+           
+               
             }
             else {
                 this.titulo = "Alterar cliente"
@@ -46,6 +57,8 @@ export class CadastroComponent implements OnInit {
             }
         });
     }
+
+   
 
     
  
@@ -59,7 +72,7 @@ export class CadastroComponent implements OnInit {
         if(this.cliente.codCliente == undefined)
         {
            // chamando servico para cadastrar
-     
+           
              this.clienteService.addCliente(this.cliente).subscribe(response =>
                  {
                      //response do retorno do servico
@@ -69,6 +82,7 @@ export class CadastroComponent implements OnInit {
 
                      if(res.codigo==1)
                      {
+                        console.log(this.cliente.codVendedor)
                          alert(res.mensagem);
                           this.cliente = new Cliente();
                       }
