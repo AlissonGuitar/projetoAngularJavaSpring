@@ -28,6 +28,8 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
     titulo2:string;
     private cadastroComponent:CadastroComponent;
   filtroClientes: Cliente[];
+  codigo:number;
+  
    
     
  
@@ -126,7 +128,15 @@ import { IgxCsvExporterService, IgxCsvExporterOptions, CsvFileTypes,IColumnExpor
       this.reverse = !this.reverse;
   }
 
+  Pesquisar(codigo:number)
+  {
 
+    console.log(codigo)
+    this.clienteService.getCliente(codigo).subscribe(res =>this.clientes= res);
+    this.clientes.splice(codigo);
+
+  }
+ 
   
   
   }

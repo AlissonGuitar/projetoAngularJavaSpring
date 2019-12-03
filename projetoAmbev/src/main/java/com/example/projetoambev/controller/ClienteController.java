@@ -46,6 +46,17 @@ public class ClienteController {
 
         return this.clienteService.consultar();
     }
+    //consultar por nome
+
+    @GetMapping(value="/clienteModels/raz_social")
+            public @ResponseBody
+             Optional<ClienteModel> consultarPorNome(@PathVariable ("raz_social") String razaoSocial)
+    {
+        return this.clienteService.consultarPorNome(razaoSocial);
+
+    }
+
+
 
     //Buscar cliente por codigo
 

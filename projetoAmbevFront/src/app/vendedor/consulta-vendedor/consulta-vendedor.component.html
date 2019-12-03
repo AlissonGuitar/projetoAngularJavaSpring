@@ -7,7 +7,7 @@
 <br><br>
 <br>
 <label>Filtro por Nome</label>
-<input type="text" name="search" [(ngModel)]="filter">
+<input class="form-control" type="text" [(ngModel)]="filter">
 <br>
 <button type="button" (click)="download()"> Importar Csv </button>
 <br>
@@ -45,6 +45,7 @@
 
         <tr>
             <td colspan="8" style="text-align: right;">Total de Registros: {{ vendedores.length }}</td>
+            <p *ngIf="vendedores.length < 1">Nenhum cliente encontrado.</p>
         </tr>
     </tbody>
 

@@ -17,11 +17,11 @@
     </label><br/><br/>
 
     <label>Latitude:
-        <input mask=" 00.0000" [showMaskTyped]="true" type="input" name="latitude" size="30" [(ngModel)]="vendedor.latitude"/>
+        <input mask=" -00.0000" [showMaskTyped]="true" type="input" name="latitude" size="30" [(ngModel)]="vendedor.latitude"/>
     </label><br/><br/>
 
     <label>Longitude:
-        <input mask=" 00.0000" [showMaskTyped]="true" type="input" name="longitude" size="30" [(ngModel)]="vendedor.longitude"/>
+        <input mask=" -00.0000" [showMaskTyped]="true" type="input" name="longitude" size="30" [(ngModel)]="vendedor.longitude"/>
     </label><br/><br/>
     <button type="submit">Cadastrar</button>
 </form>

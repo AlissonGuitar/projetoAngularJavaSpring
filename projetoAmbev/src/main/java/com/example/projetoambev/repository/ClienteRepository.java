@@ -14,6 +14,9 @@ import java.util.Optional;
 public interface ClienteRepository extends JpaRepository<ClienteModel,Long> {
 
 
+    public Optional<ClienteModel> findByrazSocial(String razaoSocial);
+
+
     boolean existsByCNPJ(String cnpj);
 
 }

@@ -7,7 +7,6 @@ import com.example.projetoambev.validacoes.ValidaCPFandCNPJ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,7 +67,18 @@ public class  ClienteService {
         return this.clienteRepository.findAll();
     }
 
+    //consultar por nome
+
+    public Optional<ClienteModel> consultarPorNome(String razaoSocial)
+    {
+        return this.clienteRepository.findByrazSocial(razaoSocial);
+    }
+
+
+
+
     //Buscar cliente por codigo
+
     public Optional<ClienteModel> buscar(Long codigo)
     {
 

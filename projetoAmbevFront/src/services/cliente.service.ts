@@ -60,7 +60,7 @@ export class ClienteService{
 
     //consulta cliente por codigo
 
-    getCliente(codigo:number)
+    getCliente(codigo:number):Observable<any>
     {
         return this.http.get<Cliente>(this.baseUrlService + codigo).pipe();
     }
@@ -72,6 +72,16 @@ export class ClienteService{
        
 
     }
+
+    //consulta cliente por nome
+
+    getClienteNome(razao:String):Observable<any>
+    {
+        return this.http.get<Cliente>(this.baseUrlService + razao).pipe();
+    }
+
+   
+
 
 
 
